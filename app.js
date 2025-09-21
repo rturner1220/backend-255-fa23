@@ -34,4 +34,9 @@ router.get("/songs", function (req, res) {
 
 // all request that usually use an api start with /api...
 app.use("/api", router);
-app.listen(3000);
+
+app.get("/", (_req, res) => res.send("API is up. Try /api/songs"));
+
+// IMPORTANT for Render
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`API running on port ${PORT}`));
